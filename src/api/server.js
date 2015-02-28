@@ -1,6 +1,6 @@
 express = require('express');
 
-var run = function(route) {
+var run = function() {
     console.log('starting...')
     app = express();
 
