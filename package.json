@@ -1,0 +1,25 @@
+{
+  "name": "SmartRush",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/src/api/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/4bg/SmartRush.git"
+  },
+  "keywords": [
+    "Wechat",
+    "restify",
+    "restful"
+  ],
+  "author": "Devin Jin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/4bg/SmartRush/issues"
+  },
+  "homepage": "https://github.com/4bg/SmartRush",
+  "dependencies": {}
+}
