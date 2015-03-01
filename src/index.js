@@ -1,2 +1,2 @@
-server = require('./server');
-server.run();
+app = require('./app');
+app.run();

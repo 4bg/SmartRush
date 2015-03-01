@@ -1,12 +1,14 @@
 express = require('express');
+mongoose = require('mongoose');
 
 var run = function() {
     console.log('starting...')
+    mongoose.connect('localhost:27017/test');
     app = express();
 
     app.route('/users').get(function(request, response) {
         user = require('./modules/user');
-        response.send(user.getAll());
+        user.getAll(response);
     })
 
     server = app.listen(3333, function() {
