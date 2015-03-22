@@ -6,12 +6,12 @@ var run = function() {
     mongoose.connect('localhost:27017/test');
     app = express();
 
+    //static resouces
     app.use('/static', express.static(__dirname + '/public'));
 
-    app.route('/users').get(function(request, response) {
-        user = require('./modules/user');
-        user.getAll(response);
-    })
+    //to use router
+    router = require('express-routeloader')({});
+    app.use(router);
 
     server = app.listen(3333, function() {
         console.log('listening...');
