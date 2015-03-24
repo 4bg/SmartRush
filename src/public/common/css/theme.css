@@ -1,0 +1,15 @@
+.ui-field-contain {
+    border-bottom-color: rgba(0,0,0,.15);
+    border-bottom-width: 1px;
+    padding-bottom: .8em;
+}
+
+.ui-field-contain .child-fieldcontain {
+    border-bottom-color: rgba(0,0,0,.10);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.child-fieldcontain label{
+    margin-bottom: 0;
+}

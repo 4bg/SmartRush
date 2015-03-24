@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>发起投票</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <link rel="stylesheet" href="./css/add.css">
+</head>
+<body>
+  <div data-role="page" id="add-vote-page">
+    <div data-role="header">
+      <h1>发起投票</h1>
+    </div>
+    <div class="ui-content" role="main">
+      <form class="new-vote">
+        <div class="title" data-role="fieldcontain">
+          <label for="vote-title">标题</label>
+          <input id="vote-title" type="text" placeholder="标题...(不得超过20个字符)" maxlength="20" required>
+        </div>
+        <div class="description" data-role="fieldcontain">
+          <label for="vote-descrition">描述</label>
+          <textarea name="description" id="vote-description" cols="30" rows="10" placeholder="描述...(不得超过150个字符)"></textarea>
+        </div>
+        <div class="options clearfix" data-role="fieldcontain">
+          <label for="vote-options">选项</label>
+          <div id="vote-options"></div>
+          <button id="add-vote-btn" class="add fr" data-inline="true" data-mini="true" type="button">添加</button>
+        </div>
+        <div class="setting" class="ui-field-contain" data-role="fieldcontain">
+          <div for="vote-setting">设置</div>
+          <div id="vote-setting">
+            <fieldset>
+              <div class="clearfix child-fieldcontain">
+                <label for="allow-multiple-choice">允许多选：</label>
+                <input type="checkbox" id="allow-multiple-choice" data-role="flipswitch">
+              </div>
+              <div class="clearfix child-fieldcontain">
+                <label for="result-display-after-vote">投票后可见结果</label>
+                <input type="checkbox" id="result-display-after-vote" data-role="flipswitch">
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </form>
+    </div>
+    <a href="https://github.com/4bg">
+      <div data-role="footer">
+        <h4>4BG<small>(sbcengnimma)</small></h4>
+      </div>
+    </a>
+  </div>
+  <script src="http://requirejs.org/docs/release/2.1.16/minified/require.js" data-main="js/main"></script>
+</body>
+</html>

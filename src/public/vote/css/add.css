@@ -1,0 +1,12 @@
+@import url("../../common/css/loader.css");
+
+#vote-setting label {
+    font-size: 14px;
+    color: #9c9c9c;
+    display: inline-block;
+    line-height: 48px;
+}
+
+#vote-setting .ui-flipswitch{
+    float: right;
+}
