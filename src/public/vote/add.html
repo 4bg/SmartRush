@@ -24,9 +24,12 @@
           <textarea name="description" id="vote-description" cols="30" rows="10" placeholder="描述...(不得超过150个字符)"></textarea>
         </div>
         <div class="options clearfix" data-role="fieldcontain">
-          <label for="vote-options">选项</label>
-          <div id="vote-options"></div>
-          <button id="add-vote-btn" class="add fr" data-inline="true" data-mini="true" type="button">添加</button>
+          <div class="clearfix">
+            <label class="fl" for="vote-options">选项</label>
+            <button id="add-vote-btn" class="add fr" data-inline="true" data-mini="true" type="button" data-shadow="false" style="margin-top: 0;">添加</button>
+          </div>
+          <ul id="vote-options" data-role="listview" data-inset="true" data-icon="false">
+          </ul>
         </div>
         <div class="setting" class="ui-field-contain" data-role="fieldcontain">
           <div for="vote-setting">设置</div>
@@ -37,8 +40,12 @@
                 <input type="checkbox" id="allow-multiple-choice" data-role="flipswitch">
               </div>
               <div class="clearfix child-fieldcontain">
-                <label for="result-display-after-vote">投票后可见结果</label>
-                <input type="checkbox" id="result-display-after-vote" data-role="flipswitch">
+                <label for="result-display-after-vote">投票后结果可见</label>
+                <input type="checkbox" id="result-display-after-vote" data-role="flipswitch" checked>
+              </div>
+              <div class="clearfix child-fieldcontain">
+                <label for="anonymous">匿名投票</label>
+                <input type="checkbox" id="result-display-after-vote" data-role="flipswitch" checked>
               </div>
             </fieldset>
           </div>
