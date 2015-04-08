@@ -37,6 +37,7 @@ define(['jquery', 'jqueryMobile', 'text!../../partials/new-option.html'], functi
       //parameters validation
       if((!param.title) || ('' === param.title)) {
         alert('标题不能为空');
+        return;
       }
 
       if ((!param.options.length) || (0 === param.options.length)) {
