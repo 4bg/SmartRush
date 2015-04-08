@@ -7,6 +7,7 @@ define(['jquery', 'jqueryMobile', 'text!../../partials/new-option.html'], functi
         return;
       }
 
+      //refresh the page to apply jquerymobile ui for the dynamic components
       $('#vote-options').append(newOptionTmpl).listview('refresh');
       $('.options').trigger('create');
     })
@@ -41,7 +42,11 @@ define(['jquery', 'jqueryMobile', 'text!../../partials/new-option.html'], functi
 
       //config ajax options and send the request
       $.ajaxSetup({ contentType: 'application/json' });
-      $.post('/votes', JSON.stringify(param), function() {});
+      $.post('/votes', JSON.stringify(param)).done(function() {
+        alert('sucess!');
+      }).fail(function() {
+        alert('error!');
+      });
     })
   });
   $.mobile.initializePage();
