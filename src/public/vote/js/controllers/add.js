@@ -34,7 +34,11 @@ define(['jquery', 'jqueryMobile', 'text!../../partials/new-option.html'], functi
         param.options.push($(element).val());
       });
 
-      //do not accept vote without any options
+      //parameters validation
+      if((!param.title) || ('' === param.title)) {
+        alert('标题不能为空');
+      }
+
       if ((!param.options.length) || (0 === param.options.length)) {
         alert('至少需要一个选项！');
         return;
