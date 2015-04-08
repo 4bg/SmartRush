@@ -14,7 +14,7 @@
       <h1>发起投票</h1>
     </div>
     <div class="ui-content" role="main">
-      <form class="new-vote">
+      <form class="new-vote" action="">
         <div class="title" data-role="fieldcontain">
           <label for="vote-title">标题</label>
           <input id="vote-title" type="text" placeholder="标题...(不得超过20个字符)" maxlength="20" required>
@@ -36,20 +36,25 @@
           <div id="vote-setting">
             <fieldset>
               <div class="clearfix child-fieldcontain">
-                <label for="allow-multiple-choice">允许多选：</label>
+                <label for="allow-multiple-choice">允许多选</label>
                 <input type="checkbox" id="allow-multiple-choice" data-role="flipswitch">
               </div>
+            </fieldset>
+            <fieldset>
               <div class="clearfix child-fieldcontain">
-                <label for="result-display-after-vote">投票后结果可见</label>
+                <label for="result-display-after-vote">投票后才能看见其他人结果</label>
                 <input type="checkbox" id="result-display-after-vote" data-role="flipswitch" checked>
               </div>
+            </fieldset>
+            <fieldset>
               <div class="clearfix child-fieldcontain">
-                <label for="anonymous">匿名投票</label>
-                <input type="checkbox" id="result-display-after-vote" data-role="flipswitch" checked>
+                <label for="is-anonymous">匿名投票</label>
+                <input type="checkbox" id="is-anonymous" data-role="flipswitch" checked>
               </div>
             </fieldset>
           </div>
         </div>
+        <button type="submit" data-theme="C">确定</button>
       </form>
     </div>
     <a href="https://github.com/4bg">
