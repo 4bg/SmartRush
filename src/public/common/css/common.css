@@ -1,4 +1,14 @@
-button.add {
+.btn {
     padding-top: 3px;
-    padding-bottom: 3px
+    padding-bottom: 3px;
+
+}
+
+.btn-delete {
+    background-color: red;
+    color: white;
+}
+
+.close-right {
+    margin-right: 0;
 }
