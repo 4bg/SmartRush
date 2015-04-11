@@ -5,6 +5,7 @@
     "express": "^4.12.0",
     "express-mongoose": "^0.1.0",
     "express-routeloader": "^2.0.0",
-    "mongoose": "^3.8.24"
+    "mongoose": "^3.8.24",
+    "request": "^2.55.0"
   }
 }
