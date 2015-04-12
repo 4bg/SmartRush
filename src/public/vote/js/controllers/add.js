@@ -1,4 +1,13 @@
 define(['jquery', 'jqueryMobile', 'text!../../partials/new-option.html'], function($, jqm, newOptionTmpl){
+  function getQueryString(name) {
+    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+      return unescape(r[2]);
+    }
+    return null;
+  }
+
   $(document).on('pageinit', '#add-vote-page', function() {
     $('#add-vote-btn').on('click', function() {
       //do not accept the options more than 5
@@ -26,7 +35,8 @@ define(['jquery', 'jqueryMobile', 'text!../../partials/new-option.html'], functi
         options: [],
         isMultiple: $('#allow-multiple-choice').is(':checked'),
         isDisplayAfterVote: $('#result-display-after-vote').is(':checked'),
-        isAnonymous: $('#is-anonymous').is(':checked')
+        isAnonymous: $('#is-anonymous').is(':checked'),
+        code: getQueryString('code')
       };
 
       //put the options into the params
@@ -47,9 +57,9 @@ define(['jquery', 'jqueryMobile', 'text!../../partials/new-option.html'], functi
 
       //config ajax options and send the request
       $.ajaxSetup({ contentType: 'application/json' });
-      $.post('/votes', JSON.stringify(param)).done(function() {
-        alert('sucess!');
-      }).fail(function() {
+      $.post('/votes', JSON.stringify(param)).success(function(data) {
+        alert(data);
+      }).error(function() {
         alert('error!');
       });
     })
