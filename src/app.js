@@ -1,9 +1,9 @@
 express = require('express');
-// mongoose = require('mongoose');
+mongoose = require('mongoose');
 config = require('./config');
 bodyParser = require('body-parser');
 
-// mongoose.connect(config.db);
+mongoose.connect(config.db);
 app = express();
 
 //static resouces
