@@ -1,4 +1,4 @@
-define(['jquery', 'jqueryMobile', 'text!../../partials/new-option.html'], function($, jqm, newOptionTmpl){
+define(['jquery', 'jqueryMobile', 'text!../../partials/new-option.html', '../../../common/js/restService'], function($, jqm, newOptionTmpl, restService){
   function getQueryString(name) {
     var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
     var r = window.location.search.substr(1).match(reg);
@@ -56,12 +56,9 @@ define(['jquery', 'jqueryMobile', 'text!../../partials/new-option.html'], functi
       }
 
       //config ajax options and send the request
-      $.ajaxSetup({ contentType: 'application/json' });
-      $.post('/votes', JSON.stringify(param)).success(function(data) {
-        alert(data);
-      }).error(function() {
-        alert('error!');
-      });
+      restService.post('/votes', param, function(data) {
+        alert('success');
+      })
     })
   });
   $.mobile.initializePage();
