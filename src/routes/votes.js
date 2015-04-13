@@ -1,4 +1,4 @@
-wechatApi = require('../utils/wechat_enterprice');
+wechatApi = require('../utils/wechatEnterprise');
 Vote = require('../models/vote');
 
 exports.create = {
@@ -22,7 +22,7 @@ exports.create = {
           wechatApi.sendTextMessageToApp(message, 6, 0);
           res.send({voteId: vote._id + ''});
         } else {
-          res.status(500).send('failed to save the new vote');
+          throw new Error('failed to save the new vote');
         }
       });
     })
