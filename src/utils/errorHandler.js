@@ -1,13 +1,8 @@
-var log4js = require('log4js');
 var logBuilder= require('./logBuilder');
-var dateFormatter = require('./timeFormatter');
+var logger = require('./logger');
 
 module.exports = function errorHandler(err, req, res, next) {
-  log4js.loadAppender('file');
-  var date = new Date()
-  var logFile = '../logs/app ' + dateFormatter.getFormattedDate() + '.log';
-  log4js.addAppender(log4js.appenders.file(logFile), 'app');
-  var logger = log4js.getLogger('app');
-  logger.error(logBuilder.getGeneralLog(err));
+  var log = logBuilder.getLogByError(err, 'app');
+  logger.error(log);
   res.status(500).send({errMessage: err.message});
 }
