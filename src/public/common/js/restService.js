@@ -3,7 +3,7 @@ define(['jquery'], function($) {
     //set default error handler
     if (!error && typeof(error) != 'function') {
       var error = function(response) {
-        if (response.responseJSON.errMessage) {
+        if (response && response.responseJSON && response.responseJSON.errMessage) {
           alert(response.responseJSON.errMessage);
         } else {
           alert('服务器异常');

@@ -2,7 +2,7 @@ wechatApi = require('../utils/wechatEnterprise');
 Vote = require('../models/vote');
 
 exports.create = {
-  handler: function(req, res) {
+  handler: function(req, res, next) {
     wechatApi.getUserByCode(req.body.code, 6, function(user) {
       var userId = user.UserId;
       
@@ -18,11 +18,11 @@ exports.create = {
       vote.save(function(error) {
         if(!error) {
           //send message to WeChat
-          var message = userId + "发起了新的投票";
+          var message = userId + "发起了新的投票：" + vote.title;
           wechatApi.sendTextMessageToApp(message, 6, 0);
           res.send({voteId: vote._id + ''});
         } else {
-          throw new Error('failed to save the new vote');
+          next(new Error(error));
         }
       });
     })

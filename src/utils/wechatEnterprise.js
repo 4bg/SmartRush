@@ -3,7 +3,12 @@ var request = require('request');
 var logBuilder = require('./logBuilder');
 var logger = require('./logger');
 
-function getToken(callback) {
+function getToken(successCallBack, errorCallBack) {
+  //empty error handler as default
+  if (!errorCallBack || typeof(errorCallBack) != 'function') {
+    errorCallBack = function() {}
+  }
+
   var url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid='
   + config.corpId + '&corpsecret='
   + config.secret;
@@ -22,13 +27,15 @@ function getToken(callback) {
       if(response.access_token && response.access_token.length > 0) {
         logger.info(log, 'wechat-api');
         token = response.access_token;
-        callback(token);
+        successCallBack(token);
       } else if (response.errmsg) {
         logger.error(log, 'wechat-api');
-        throw new Error('Failed to get the token, error message is: ' + response.errmsg);
+        var errorMessage = 'Error from wechat api: ' + response.errmsg;
+        errorCallBack(errorMessage);
       } else {
-        logger.error(log, 'wechat-api')
-        throw new Error('Unexpected response from wechat api');
+        logger.error(log, 'wechat-api');
+        var errorMessage = 'Wechat api server error';
+        errorCallBack(errorMessage);
       }
     } else {
       throw new Error('Error when querying the wechat api');
